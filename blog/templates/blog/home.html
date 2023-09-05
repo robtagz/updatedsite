@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+	
+{% block content %}
+<h1>Latest Posts</h1>
+<div class="container">
+</br>
+
+	{% for post in posts %}
+	
+</br>
+		<h2> {{ post.title }}</h2>
+		<small>  Published on {{ post.published_at | date:"M d, Y" }} by {{ post.author | title}}</small>
+		<p>  {{ post.content }}</p>
+		<p>
+			<a href="{% url 'post-edit' post.id %}">Edit</a> 
+			<a href="{% url 'post-delete' post.id%}">Delete</a>
+		</p>
+</br>
+</br>
+	{% endfor %}
+
+	
+	  </div>
+	</br>
+{% endblock content %}
+
+
